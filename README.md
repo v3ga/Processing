@@ -1,5 +1,6 @@
 Processing
 ==========
+A collection of sketches using various libraries I use during courses.  
 
 ## Unfolding Maps
 * **SimpleMapAppOpenPaths** - example on how to use Unfolding Maps for plotting geo positions retrieved from https://openpaths.cc in real time.
