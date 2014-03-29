@@ -1,7 +1,7 @@
 Processing
 ==========
 
-# Unfolding Maps
+## Unfolding Maps
 * SimpleMapAppOpenPaths
 Example on how to use Unfolding Maps for plotting geo positions retrieved from https://openpaths.cc in real time.
 Using the new data capabilities of Processing 2 (JSON stuff)
