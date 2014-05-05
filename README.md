@@ -10,6 +10,6 @@ Using the new data capabilities of Processing 2 (JSON stuff)
 This example does not take into account «real speed» between points
 
 ## Forms
-* Chladni plate interference surfaces
-* L_System
-* Turmites - according to wikipedia, a turmite is a Turing machine which has an orientation as well as a current state and a "tape" that consists of an infinite two-dimensional grid of cells.
+* **Chladni plate interference surfaces**
+* **L_System**
+* **Turmites** - according to wikipedia, a turmite is a Turing machine which has an orientation as well as a current state and a "tape" that consists of an infinite two-dimensional grid of cells.
