@@ -1,6 +1,21 @@
+/*
+  L_system
+
+  —
+  Developped and tested on : 
+    - Processing 2.1.1 on MacOSX (10.9.2)
+    
+  —
+  Julien @v3ga Gachadoat
+  www.v3ga.net
+  www.2roqs.com
+
+*/
+
+// ------------------------------------------------------------------------------------------------
 LSystem ls2;
 
-// ----------------------
+// ------------------------------------------------------------------------------------------------
 void setup()
 {
   ls2 = new LSystem("X", new LInterpreterF());
@@ -15,7 +30,7 @@ void setup()
 }
 
 
-// ----------------------
+// ------------------------------------------------------------------------------------------------
 void draw()
 {
   background(255);
@@ -26,7 +41,15 @@ void draw()
   popMatrix();
   ls2.drawInfos();
 }
-// ----------------------
+
+// ------------------------------------------------------------------------------------------------
+void mousePressed()
+{
+  saveFrame("lsystem.png");
+}
+
+
+// ------------------------------------------------------------------------------------------------
 class LInterpreterF implements LInterpreter
 {
   float angle = PI/10;
@@ -75,8 +98,4 @@ class LInterpreterF implements LInterpreter
   }
 }
 
-void mousePressed()
-{
-  saveFrame("lsystem.png");
-}
 

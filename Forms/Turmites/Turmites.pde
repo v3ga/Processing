@@ -31,7 +31,7 @@ int ruleIndex = 0;
 // ------------------------------------------------------------------------------------------------
 void setup()
 {
-  size(460, 460, P2D);
+  size(500, 500, P2D);
   grid = createImage(width/div, height/div, RGB);
 
   turmite = new Turmite(grid, 0);

@@ -13,3 +13,7 @@ This example does not take into account «real speed» between points
 * **Chladni plate interference surfaces**
 * **L_System**
 * **Turmites** - according to wikipedia, a turmite is a Turing machine which has an orientation as well as a current state and a "tape" that consists of an infinite two-dimensional grid of cells.
+
+![Chladni](v3ga.github.com/Images/Processing/Forms/Thumbnails/Chandli-250.png)
+![L_System](v3ga.github.com/Images/Processing/Forms/Thumbnails/L_system-250.png)
+![Turmites](v3ga.github.com/Images/Processing/Forms/Thumbnails/Turmites-250.png)
