@@ -18,7 +18,7 @@ This example does not take into account «real speed» between points
 ![Chladni](http://v3ga.github.io/Images/Processing/Forms/Thumbnails/Chandli-250.png)
 ![L_System](http://v3ga.github.io/Images/Processing/Forms/Thumbnails/L_system-250.png)
 ![Turmites](http://v3ga.github.io/Images/Processing/Forms/Thumbnails/Turmites-250.png)
-![TorusKnot](http://v3ga.github.io/Images/Processing/Forms/Thumbnails/Torus-250.png)
+![Torus](http://v3ga.github.io/Images/Processing/Forms/Thumbnails/Torus-250.png)
 
 ## Communication
 * **CanvasOSC** - example on how to draw on canvas from another computer
