@@ -20,6 +20,12 @@ This example does not take into account «real speed» between points
 ![Turmites](http://v3ga.github.io/Images/Processing/Forms/Thumbnails/Turmites-250.png)
 ![Torus](http://v3ga.github.io/Images/Processing/Forms/Thumbnails/Torus-250.png)
 
+## Animation
+* **OmbroCinema**
+
+![OmbroCinema](http://v3ga.github.io/Images/Processing/Animation/Thumbnails/OmbroCinema-250.png)
+
+
 ## Communication
 * **CanvasOSC** - example on how to draw on canvas from another computer
 * **CanvasOSCClient**
