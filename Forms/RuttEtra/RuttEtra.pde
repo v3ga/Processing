@@ -23,7 +23,7 @@ RuttEtraizer re;
 // ------------------------------------------------------
 void setup()
 {
-  size(800, 600, P3D);
+  size(600, 600, P3D);
   video = new Capture(this, 160, 120);
   video.start();
 }
