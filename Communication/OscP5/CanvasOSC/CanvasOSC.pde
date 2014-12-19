@@ -51,6 +51,7 @@ void draw()
 // ------------------------------------------------------------------------------------------------
 void oscEvent(OscMessage oscIn) 
 {
+  println(oscIn.address());
   synchronized(clients)
   {
     String ip = oscIn.address();

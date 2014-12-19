@@ -35,7 +35,7 @@ void setup()
   // Compose the final frame (this is calling "drawScanimationFrame" for each frame)
   scanimation.composeFinalFrame();
   // Set the animation period in seconds (use 'a' on keyboard)
-  scanimation.setTimerPeriod(0.25);
+  scanimation.setTimerPeriod(0.5);
 }
 
 // ------------------------------------------------------
@@ -64,12 +64,13 @@ void draw()
 // Automatically called by composeFinalFrame
 void drawScanimationFrame(PGraphics pg, int frame, int nbFrames)
 {
-  pg.translate(pg.width/2, pg.height/2);
-  pg.rotate( map(frame, 0, nbFrames, 0, radians(90)) );
-  pg.noStroke();
-  pg.rectMode(CENTER);
-  pg.rect(0,0,400,400);
-}
+    pg.translate(pg.width/2, pg.height/2);
+    pg.rotate( map(frame, 0, nbFrames, 0, radians(90)) );
+    pg.noStroke();
+    pg.rectMode(CENTER);
+    pg.rect(0,0,400,100);
+    pg.ellipse(30,60,100,100);
+  }
 
 
 // ------------------------------------------------------
