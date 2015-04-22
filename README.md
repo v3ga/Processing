@@ -35,3 +35,8 @@ This example does not take into account «real speed» between points
 * **CanvasOSC** - example on how to draw on canvas from another computer
 * **CanvasOSCClient**
 
+## Image
+* **CameraPropagation**
+* **CameraSlitScanVertical**
+
+
