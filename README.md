@@ -10,6 +10,7 @@ A collection of sketches using various libraries I use during courses.
 * **Torus** - made with Processing 1.5.1.
 * **RuttEtra**
 * **MazeGenerator** - using recursive backtracker algorithm.
+* **Circles**
 
 
 ![Chladni](http://v3ga.github.io/Images/Processing/Forms/Thumbnails/Chandli-250.png)
