@@ -19,6 +19,7 @@ A collection of sketches using various libraries I use during courses.
 ![Torus](http://v3ga.github.io/Images/Processing/Forms/Thumbnails/Torus-250.png)
 ![RuttEtra](http://v3ga.github.io/Images/Processing/Forms/Thumbnails/RuttEtra-250.png)
 ![Maze](http://v3ga.github.io/Images/Processing/Forms/Thumbnails/Maze-250.png)
+![Circles recursion](http://v3ga.github.io/Images/Processing/Forms/Thumbnails/Circles_recursion-250.png)
 
 ## Animation
 * **OmbroCinema**
