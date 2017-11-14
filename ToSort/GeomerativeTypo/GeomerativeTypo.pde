@@ -8,5 +8,6 @@ void setup()
 
 void draw()
 {
-  background(255);
+  background(100);
+  typo.drawShapes(255,100);
 }

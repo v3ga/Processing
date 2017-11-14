@@ -19,6 +19,9 @@ class TypoManager
   // Liste des points par forme
   PVector[][] listePointsShape;
 
+  // Liste contenant si la shape doit etre remplie de la couleur primaire ou de la couleur secondaire
+  boolean fillShape[];
+
   // ------------------------------------------------------------------------------------------------
   TypoManager(PApplet applet_, String fontName_, String texte, float segmentLength) {
     this.applet = applet_;
@@ -36,7 +39,7 @@ class TypoManager
 
     RPoint[] points = forme.getPoints();
     listePoints = new PVector[points.length];
-    for (int i=0;i<points.length;i++) {
+    for (int i=0; i<points.length; i++) {
       listePoints[i] = new PVector(points[i].x+width/2, points[i].y+height/2);
     }
 
@@ -44,13 +47,13 @@ class TypoManager
     listeTangentesAngle = new float[points.length];
     for (int i=0; i<listeTangentes.length; i++)
     {
-       PVector A = listePoints[i];
-       PVector B = listePoints[(i+1)%listePoints.length];
+      PVector A = listePoints[i];
+      PVector B = listePoints[(i+1)%listePoints.length];
 
-       listeTangentes[i] = new PVector(B.x-A.x, B.y-A.y);
-       listeTangentes[i].normalize();
-       
-       listeTangentesAngle[i] = atan2(listeTangentes[i].x, listeTangentes[i].y);
+      listeTangentes[i] = new PVector(B.x-A.x, B.y-A.y);
+      listeTangentes[i].normalize();
+
+      listeTangentesAngle[i] = atan2(listeTangentes[i].x, listeTangentes[i].y);
     } 
 
 
@@ -59,11 +62,39 @@ class TypoManager
 
     listePointsShape = new PVector[pointsShape.length][];
 
-    for (int i=0;i<pointsShape.length;i++)
+    for (int i=0; i<pointsShape.length; i++)
     {
       listePointsShape[i] = new PVector[pointsShape[i].length];
-      for (int j=0;j<pointsShape[i].length;j++) {
+      for (int j=0; j<pointsShape[i].length; j++) {
         listePointsShape[i][j] = new PVector(pointsShape[i][j].x+width/2, pointsShape[i][j].y+height/2);
+      }
+    }
+    //Algo de detection si la shape est dans une autre
+    fillShape = new boolean[pointsShape.length];
+    for (int i = 0; i < fillShape.length; ++i) {
+      fillShape[i] = true;
+    }
+    for (int k=0; k<listePointsShape.length; k++) {
+      float x[] = new float[listePointsShape[k].length];
+      float y[] = new float[listePointsShape[k].length];
+      for (int j=0; j<listePointsShape[k].length; j++)
+      {
+        x[j] = listePointsShape[k][j].x;
+        y[j] = listePointsShape[k][j].y;
+      }
+      for (int i=0; i<listePointsShape.length; i++)
+      {
+        boolean inside = false;
+        if (i==k) continue;
+        for (int j=0; j<listePointsShape[i].length; j++)
+        {
+          if (pnpoly(x.length, x, y, listePointsShape[i][j].x, listePointsShape[i][j].y)) {
+            inside = true;
+            print("inside : " + i + " " + k +'\n');
+            break;
+          }
+        }
+        fillShape[i] = fillShape[i] && !inside;
       }
     }
   }
@@ -109,34 +140,38 @@ class TypoManager
   // ------------------------------------------------------------------------------------------------
   void drawPoints()
   {
-    for (int i=0;i<listePoints.length;i++) {
+    for (int i=0; i<listePoints.length; i++) {
       ellipse(listePoints[i].x, listePoints[i].y, 5, 5);
-    }
-  }
-  
-  // ------------------------------------------------------------------------------------------------
-  void drawTangents(float l)
-  {
-    stroke(200,0,0);
-    PVector P,T;
-    for (int i=0;i<listePoints.length;i++) 
-    {
-      P = listePoints[i];
-      T = listeTangentes[i];
-      line(P.x,P.y,P.x+l*T.x,P.y+l*T.y);
     }
   }
 
   // ------------------------------------------------------------------------------------------------
-  void drawShapes(color c)
+  void drawTangents(float l)
+  {
+    stroke(200, 0, 0);
+    PVector P, T;
+    for (int i=0; i<listePoints.length; i++) 
+    {
+      P = listePoints[i];
+      T = listeTangentes[i];
+      line(P.x, P.y, P.x+l*T.x, P.y+l*T.y);
+    }
+  }
+
+  // ------------------------------------------------------------------------------------------------
+  void drawShapes(color c, color bg)
   {
     PVector p;
     int i, j;
-    for (i=0;i<listePointsShape.length;i++)
+    for (i=0; i<listePointsShape.length; i++)
     {
-      fill(c);
+      if (fillShape[i]) {
+        fill(c);
+      } else {
+        fill(bg);
+      }
       beginShape();
-      for (j=0;j<listePointsShape[i].length;j++)
+      for (j=0; j<listePointsShape[i].length; j++)
       {
         p = listePointsShape[i][j];
         vertex(p.x, p.y);
@@ -146,5 +181,18 @@ class TypoManager
 
       endShape();
     }
+  }
+
+  //Voir ici : http://stackoverflow.com/a/2922778
+  boolean pnpoly(int nvert, float vertx[], float verty[], float testx, float testy)
+  {
+    int i, j;
+    boolean c=false;
+    for (i = 0, j = nvert-1; i < nvert; j = i++) {
+      if ( ((verty[i]>testy) != (verty[j]>testy)) &&
+        (testx < (vertx[j]-vertx[i]) * (testy-verty[i]) / (verty[j]-verty[i]) + vertx[i]) )
+        c = !c;
+    }
+    return c;
   }
 }
