@@ -1,17 +1,12 @@
 /*
-  HilbertCurve
+  Hilbert Curve
   —
-  http://mathworld.wolfram.com/Turmite.html
+  Based on explanations found here :
+  https://www.youtube.com/watch?v=3s7h2MHQtxc
   —
   Developped and tested on : 
-    - Arduino 1.6.5 on MacOSX (10.12.5)
-    - Arduino Uno Rev3
-    - Adafruit NeoPixel NeoMatrix 8x8 - 64 RGB LED Pixel Matrix ( https://www.adafruit.com/product/1487 )
-  
-  —
-  Uses : 
-    - https://github.com/adafruit/Adafruit_NeoPixel
-  
+    - Processing 3.2.1 on MacOSX (10.12.5)
+    
   —
   Julien @v3ga Gachadoat
   www.v3ga.net
