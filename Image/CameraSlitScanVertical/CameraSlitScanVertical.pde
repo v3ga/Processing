@@ -19,8 +19,8 @@ import processing.video.*;
 Capture camera;
 
 // ------------------------------------------------------
-int wImage = 320;
-int hImage = 180;
+int wImage = 0;
+int hImage = 0;
 
 // ------------------------------------------------------
 PImage[] images;
@@ -31,7 +31,10 @@ int indexImageCurrent = 0;
 // ------------------------------------------------------
 void setup()
 {
-  size(wImage, hImage);
+  size(320, 180);
+
+  wImage = width;
+  hImage = height;
 
   images = new PImage[hImage];
   for (int i=0; i<images.length ; i++)
@@ -70,4 +73,3 @@ void mousePressed()
 {
   saveFrame("slitscan.png");
 }
-

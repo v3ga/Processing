@@ -25,13 +25,13 @@
 // ------------------------------------------------------------------------------------------------
 PImage grid;
 Turmite turmite;
-int div = 5;
+int div = 10;
 int ruleIndex = 0;
 
 // ------------------------------------------------------------------------------------------------
 void setup()
 {
-  size(500, 500, P2D);
+  size(800, 800, P2D);
   grid = createImage(width/div, height/div, RGB);
 
   turmite = new Turmite(grid, 0);
@@ -55,10 +55,10 @@ void draw()
 
   for (i=0;i<grid.width;i++)
   {
-    x = div*i+3;
+    x = div*i+div/2;
     for (j=0;j<grid.height;j++)
     {
-      y = div*j+3;
+      y = div*j+div/2;
       if ( red( grid.pixels[i+grid.width*j] ) == 0) {
         rect(x, y, div, div);
       }
@@ -92,4 +92,3 @@ void keyPressed()
     turmite.setRule(ruleIndex);
   }
 }
-
