@@ -12,6 +12,7 @@ A collection of sketches using various libraries I use during courses.
 * **MazeGenerator** - using recursive backtracker algorithm.
 * **Circles**
 * **HilbertCurve**
+* **Penrose**
 
 
 ![Chladni](http://v3ga.github.io/Images/Processing/Forms/Thumbnails/Chandli-250.png)
@@ -23,6 +24,7 @@ A collection of sketches using various libraries I use during courses.
 ![Maze](http://v3ga.github.io/Images/Processing/Forms/Thumbnails/Maze-250.png)
 ![Circles recursion](http://v3ga.github.io/Images/Processing/Forms/Thumbnails/Circles_recursion-250.png)
 ![Hilbert curve](http://v3ga.github.io/Images/Processing/Forms/Thumbnails/HilbertCurve-250.png)
+![Penrose](http://v3ga.github.io/Images/Processing/Forms/Thumbnails/Penrose-250.png)
 
 ## Animation
 * **OmbroCinema**
