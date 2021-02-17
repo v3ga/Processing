@@ -13,6 +13,8 @@ A collection of sketches using various libraries I use during courses.
 * **Circles**
 * **HilbertCurve**
 * **Penrose**
+* **Langton ant**
+* **Cellular automaton with rule 30 and 110**
 
 
 ![Chladni](http://v3ga.github.io/Images/Processing/Forms/Thumbnails/Chandli-250.png)
@@ -25,6 +27,8 @@ A collection of sketches using various libraries I use during courses.
 ![Circles recursion](http://v3ga.github.io/Images/Processing/Forms/Thumbnails/Circles_recursion-250.png)
 ![Hilbert curve](http://v3ga.github.io/Images/Processing/Forms/Thumbnails/HilbertCurve-250.png)
 ![Penrose](http://v3ga.github.io/Images/Processing/Forms/Thumbnails/Penrose-250.png)
+![LangtonAnt](http://v3ga.github.io/Images/Processing/Forms/Thumbnails/LangtonAntMultiple-250.png)
+![Rule110](http://v3ga.github.io/Images/Processing/Forms/Thumbnails/Rule110-250.png)
 
 ## Animation
 * **OmbroCinema**
