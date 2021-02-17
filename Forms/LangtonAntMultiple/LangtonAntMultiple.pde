@@ -15,10 +15,11 @@ https://en.wikipedia.org/wiki/Langton%27s_ant
 
 Grid grid; 
 ArrayList<Ant> ants = new ArrayList<Ant>();
+boolean bDrawGrid = false;
 
 void setup()
 {
-  size(600,600); 
+  size(500,500); 
   grid = new Grid(100,100);
   addAnt(50,50);
 }
@@ -28,7 +29,8 @@ void draw()
   background(255);
   for (Ant ant : ants)
     ant.run();
-  grid.draw();
+  if (bDrawGrid)
+    grid.draw();
   grid.drawState();
 }
 
