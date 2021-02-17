@@ -1,13 +1,15 @@
 class Sun
 {
-  Triangle[] triangles = new Triangle[10];
+  int nbTriangles = 10;
+  Triangle[] triangles = new Triangle[nbTriangles];
+
 
   Sun(int subdivide, float r)
   {
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < nbTriangles; i++)
     {
-      float start = (2*i-1) * PI/10;
-      float end = (2*i+1) * PI/10;
+      float start = (2*i-1) * PI/nbTriangles;
+      float end = (2*i+1) * PI/nbTriangles;
 
       PVector A = new PVector(0, 0);
       PVector B = new PVector(r*cos(start), r*sin(start));
@@ -20,7 +22,7 @@ class Sun
 
   void draw()
   {
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < nbTriangles; i++)
       triangles[i].draw();
   }
 }
