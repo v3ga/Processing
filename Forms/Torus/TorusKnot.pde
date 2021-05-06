@@ -1,10 +1,10 @@
 // --------------------------------------------------------
 // TorusKnot code is dirty ... sorry.
-class TorusKnot
+class TorusKnot extends TriangleMesh
 {
   public float R, P, Q;
 
-  TriangleMesh mesh;
+//  TriangleMesh mesh;
 
   Vec3D points[][];
   Vec3D normals[][];
@@ -13,7 +13,7 @@ class TorusKnot
   int res = 500;
   int res2 = 60;
   float r2 = 100.0;
-  
+
   int renderMode = 0;
 
   // Constructor
@@ -27,7 +27,7 @@ class TorusKnot
     res2 = res2_;
     renderMode = renderMode_;
 
-    mesh = new TriangleMesh();
+//    mesh = new TriangleMesh();
     lines = new ArrayList<TorusKnotLine>();
 
 
@@ -41,7 +41,7 @@ class TorusKnot
     points = new Vec3D[res][res2];
     normals = new Vec3D[res][res2];
 
-    for (int i=0 ; i<res ; i++)
+    for (int i=0; i<res; i++)
     {
       A = getPointAt(th);
       b = getTangentBasis(th);
@@ -50,10 +50,10 @@ class TorusKnot
       transfo.translateSelf(A.x, A.y, A.z);
 
       basisM.set(
-      b[0], b[3], b[6], 0.0, 
-      b[1], b[4], b[7], 0.0, 
-      b[2], b[5], b[8], 0.0, 
-      0.0, 0.0, 0.0, 1.0);
+        b[0], b[3], b[6], 0.0, 
+        b[1], b[4], b[7], 0.0, 
+        b[2], b[5], b[8], 0.0, 
+        0.0, 0.0, 0.0, 1.0);
 
       transfo.multiplySelf(basisM);
 
@@ -75,10 +75,10 @@ class TorusKnot
     }
 
     Vec3D n1 = new Vec3D(), n2 = new Vec3D();
-    Vec3D aa,bb,cc,dd;
-    for (int i=0;i<points.length;i++) {
+    Vec3D aa, bb, cc, dd;
+    for (int i=0; i<points.length; i++) {
 
-      for (int j=0;j<points[i].length;j++) {
+      for (int j=0; j<points[i].length; j++) {
 
         n1 = ( points[i][(j+1)%res2].sub(points[i][j]) ).cross( points[(i+1)%res][j].sub(points[i][j]) );
         n2 = ( points[(i+1)%res][(j+1)%res2].sub(points[i][(j+1)%res2]) ).cross( points[(i+1)%res][j].sub(points[(i+1)%res][(j+1)%res2]) );
@@ -90,50 +90,46 @@ class TorusKnot
         bb = points[i][(j+1)%res2];
         cc = points[(i+1)%res][(j+1)%res2];
         dd = points[(i+1)%res][j];
-        
-        mesh.addFace(aa,bb,dd,n1);
-        mesh.addFace(bb,cc,dd,n2);
-        
-        
+
+        addFace(aa, bb, dd, n1);
+        addFace(bb, cc, dd, n2);
+
+
         if (renderMode == 0)
         {
-//          lines.add( new TorusKnotLine(aa,bb) );
-          lines.add( new TorusKnotLine(aa,cc) );
-        }
-        else
-        if (renderMode == 1)
-        {
-          float rnd = random(1);
-          if (rnd<0.25) lines.add( new TorusKnotLine(aa,cc) );
-          else if (rnd < 0.5) lines.add( new TorusKnotLine(bb,dd) );
-        }
-        else
-        if (renderMode == 2)
-        {
-          float rnd = random(1);
-          if (rnd<0.25)           lines.add( new TorusKnotLine(aa,bb) );
-          else if (rnd < 0.5)     lines.add( new TorusKnotLine(aa,dd) );
-          else if (rnd < 0.75)    lines.add( new TorusKnotLine(dd,cc) );
-          else                    lines.add( new TorusKnotLine(cc,bb) );
-        }
+          //          lines.add( new TorusKnotLine(aa,bb) );
+          lines.add( new TorusKnotLine(aa, cc) );
+        } else
+          if (renderMode == 1)
+          {
+            float rnd = random(1);
+            if (rnd<0.25) lines.add( new TorusKnotLine(aa, cc) );
+            else if (rnd < 0.5) lines.add( new TorusKnotLine(bb, dd) );
+          } else
+            if (renderMode == 2)
+            {
+              float rnd = random(1);
+              if (rnd<0.25)           lines.add( new TorusKnotLine(aa, bb) );
+              else if (rnd < 0.5)     lines.add( new TorusKnotLine(aa, dd) );
+              else if (rnd < 0.75)    lines.add( new TorusKnotLine(dd, cc) );
+              else                    lines.add( new TorusKnotLine(cc, bb) );
+            }
         if (renderMode == 3)
         {
-          lines.add( new TorusKnotLine(aa,bb) );
+          lines.add( new TorusKnotLine(aa, bb) );
         }
-
       }
     }
 
-    mesh.computeVertexNormals();
+    computeVertexNormals();
   }
+
 
   // Methods
   void renderLines()
   {
-    
-    
     for (TorusKnotLine l : lines)
-      line(l.A.x,l.A.y,l.A.z, l.B.x,l.B.y,l.B.z);
+      line(l.A.x, l.A.y, l.A.z, l.B.x, l.B.y, l.B.z);
   }
 
   PVector getPointAt(float th)
@@ -198,3 +194,13 @@ class TorusKnot
   }
 };
 
+class TorusKnotLine
+{
+  Vec3D A, B;
+
+  TorusKnotLine(Vec3D A_, Vec3D B_)
+  {
+    A = A_;
+    B = B_;
+  }
+}

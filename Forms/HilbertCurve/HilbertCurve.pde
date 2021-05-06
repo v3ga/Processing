@@ -24,7 +24,7 @@ int margin = 5;
 void setup()
 {
   size(500, 500);
-  hilbertPoints = getHilbertPoints(5, margin, margin, width-2*margin, height-2*margin);
+  hilbertPoints = getHilbertPoints(6, margin, margin, width-2*margin, height-2*margin);
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -32,7 +32,7 @@ void draw()
 {
   background(255);
   stroke(0);
-
+  strokeWeight(2);
   int nbPoints = hilbertPoints.size();
   PVector A = hilbertPoints.get(0);
   PVector B = null;
@@ -43,6 +43,12 @@ void draw()
 
     A = B;
   }
+}
+
+// ------------------------------------------------------------------------------------------------
+void keyPressed()
+{
+  if (key == 's') saveFrame("Hilbert.png");
 }
 
 // ------------------------------------------------------------------------------------------------

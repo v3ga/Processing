@@ -38,7 +38,7 @@ class Triangle
         children[i].draw();
     } else
     {
-      fill(type==0 ? 255 : 0);
+      fill(type==0 ? 0 : 255);
 
       beginShape(TRIANGLES);
       vertex(A.x, A.y);

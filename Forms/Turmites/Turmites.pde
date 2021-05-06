@@ -1,5 +1,5 @@
 /*
-  turmites
+  Turmites
 
   —
   Based on :
@@ -25,7 +25,7 @@
 // ------------------------------------------------------------------------------------------------
 PImage grid;
 Turmite turmite;
-int div = 10;
+int div = 20;
 int ruleIndex = 0;
 
 // ------------------------------------------------------------------------------------------------
@@ -33,8 +33,8 @@ void setup()
 {
   size(800, 800, P2D);
   grid = createImage(width/div, height/div, RGB);
-
   turmite = new Turmite(grid, 0);
+  setWindowTitle();
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -65,6 +65,7 @@ void draw()
     }
   }
   grid.updatePixels();
+  filter(INVERT);
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -90,5 +91,17 @@ void keyPressed()
 
     turmite.reset();
     turmite.setRule(ruleIndex);
+    setWindowTitle();
   }
+  else
+  if (key == 's')
+  {
+    saveFrame("Turmites.png");
+  }
+}
+
+// ------------------------------------------------------------------------------------------------
+void setWindowTitle()
+{
+  frame.setTitle("Turmites - rule "+ruleIndex);
 }
